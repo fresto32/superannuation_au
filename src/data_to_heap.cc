@@ -62,4 +62,5 @@ void Heap::display() {
     std::cout << heap_struct.names[i] << ": " <<
       heap_struct.returns[i] << std::endl;
   }
+  std::cout << "\n\tSize: " << heap_struct.size << std::endl;
 }
