@@ -8,7 +8,11 @@ int main () {
    std::cout << "Total years of data: " << fund_names.size();
    std::cout << std::endl << std::endl;
 
-   std::cout << "Some change";
+   std::cout << "Some change\n";
+  
+   Heap data_2014(fund_returns[0], fund_names[0]);
+
+   data_2014.display();
 
    return 0;
  }
