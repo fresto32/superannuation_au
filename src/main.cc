@@ -5,7 +5,7 @@
 int main () {
    data_to_vector_of_vectors();
    display_vector_of_vectors();
-   std::cout << "Fund Names size: " << fund_names.size();
+   std::cout << "Total years of data: " << fund_names.size();
    std::cout << std::endl << std::endl;
 
    std::cout << "Some change";

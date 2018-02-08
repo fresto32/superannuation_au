@@ -10,7 +10,7 @@ struct heap {
 
 class Heap {
   private:
-    struct heap;
+    struct heap_struct;
   public:
     void insert(struct heap, int ret, std::string name);
     int parent_index(int n);
@@ -19,3 +19,9 @@ class Heap {
     void extract_max(struct heap, int ret, std::string name);
     void bubble_down(struct heap, int ret, std::string name);
 };
+
+
+
+
+
+

@@ -6,8 +6,8 @@
 
 // Vectors to store parallel vectors of fund names and returns for each year
 // of financial data
-extern std::vector<std::vector<std::string> > fund_names;
-extern std::vector<std::vector<double> > fund_returns;
+std::vector<std::vector<std::string> > fund_names;
+std::vector<std::vector<double> > fund_returns;
 
 void data_to_vector_of_vectors() {
   // This function returns an array of two vectors. The first contains the

@@ -5,6 +5,11 @@
 #include <vector>
 #include <string>
 
+// Vectors to store parallel vectors of fund names and returns for each year
+// of financial data
+extern std::vector<std::vector<std::string> > fund_names;
+extern std::vector<std::vector<double> > fund_returns;
+
 // Converts raw data to vector of vector format
 void data_to_vector_of_vectors();
 
