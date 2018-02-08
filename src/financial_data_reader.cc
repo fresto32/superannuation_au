@@ -6,11 +6,13 @@
 
 // Vectors to store parallel vectors of fund names and returns for each year
 // of financial data
+extern std::vector<std::vector<std::string> > fund_names;
+extern std::vector<std::vector<double> > fund_returns;
 
 void data_to_vector_of_vectors() {
   // This function returns an array of two vectors. The first contains the
   // fund names, the second contains the accompanying fund returns. The format
-  // is of parallel arrays. 
+  // is of parallel arrays.
 
   std::ifstream inFile;
   inFile.open("/Users/fresto32/Dropbox/[8] Computer Science/superannuation_au/superannuation_data.txt");
@@ -19,12 +21,12 @@ void data_to_vector_of_vectors() {
     std::cerr << "Unable to open file\n";
     std::exit(1);
   }
-  
+
   // Placeholders for the iteration through each word of inFile
   std::string y = "";
   std::string x = "";
-  std::string current_year; 
-  
+  std::string current_year;
+
   // booleans for start (at start of reading) and in_name (in the date
   // portion of text file)
   bool start = true;
@@ -42,7 +44,7 @@ void data_to_vector_of_vectors() {
       start = false;
       std::cout << "Current_year = " << current_year << std::endl;
     }
-    
+
     // If the next value is a letter or " " add it to y, else push y, push x
     // Or if we are in the date (in_name) and the year has changed, push names
     // and returns onto vector of vectors
@@ -65,9 +67,9 @@ void data_to_vector_of_vectors() {
         y = "";
         temp_returns.push_back(std::stod(x));
         in_name = true;
-    }  
+    }
   }
-  // Since the final year hasn't been pushed onto the names and returns 
+  // Since the final year hasn't been pushed onto the names and returns
   // vectors...
   fund_names.push_back(temp_names);
   fund_returns.push_back(temp_returns);
@@ -91,13 +93,10 @@ void display_vector_of_vectors() {
   }
 }
 
-int main () {
-  data_to_vector_of_vectors();
-  display_vector_of_vectors();
-  std::cout << "Fund Names size: " << fund_names.size();
-  std::cout << std::endl << std::endl;
-  return 0;
-}
-
-
-
+// int main () {
+//   data_to_vector_of_vectors();
+//   display_vector_of_vectors();
+//   std::cout << "Fund Names size: " << fund_names.size();
+//   std::cout << std::endl << std::endl;
+//   return 0;
+// }
