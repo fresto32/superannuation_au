@@ -98,10 +98,6 @@ void Heap::heap_sort(std::vector<double> &returns,
   }
 }
 
-void Heap::init_heap() {
-  heap_struct.size = 0;
-}
-
 void Heap::make_heap(const std::vector<double> &values,
         const std::vector<std::string> &input_names) {
   // Faster heap construction occurs by bubbling down all elements rather

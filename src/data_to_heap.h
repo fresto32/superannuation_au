@@ -15,7 +15,6 @@ class Heap {
  private:
   struct heap heap_struct;
  public:
-  void init_heap();
   void make_heap(const std::vector<double> &values,
     const std::vector<std::string> &input_names);
   void insert(double val, std::string name);
@@ -33,6 +32,9 @@ class Heap {
   Heap(const std::vector<double> &values, const std::vector<std::string>
       &input_names) {
     make_heap(values, input_names);
+  }
+  Heap() {
+
   }
 };
 
