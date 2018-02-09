@@ -5,12 +5,13 @@
 #include <algorithm>
 
 int Heap::child_index(int n) {
-  // Returns index of child of node n
+  // Returns index of child of index n
+  // If the generated child index is greater than the heap size, return -1
   return (n*2 > heap_struct.size) ? -1 : n*2;
 }
 
 int Heap::parent_index(int n) {
-  // Returns index of parent of node n
+  // Returns index of parent of index n
   // If n=1 at root node
   if (n==1) return -1;
   else {
@@ -19,6 +20,7 @@ int Heap::parent_index(int n) {
 }
 
 void Heap::insert(double val, std::string name) {
+  // Inserts an element, val, and its acccompany tag (name) into the heap
   if (heap_struct.size >= 500) {
     std::cout << "Max heap size reached!" << std::endl;
     return;
@@ -31,11 +33,16 @@ void Heap::insert(double val, std::string name) {
 }
 
 void Heap::bubble_up(int index) {
+  // Takes in a heap index (assumed less than size of heap) and recursively
+  // swaps its place with its parents if the value at the index is larger 
+  // than the parents
   int p = Heap::parent_index(index);
 
   // If p == -1, we are at root node
   if (p == -1) return;
 
+  // If the value of index's parent is less than itself, swap values and 
+  // bubble up the parent
   if (heap_struct.returns[p] < heap_struct.returns[index]) {
     std::swap(heap_struct.returns[p], heap_struct.returns[index]);
     std::swap(heap_struct.names[p], heap_struct.names[index]);
@@ -43,6 +50,10 @@ void Heap::bubble_up(int index) {
   }
 }
 void Heap::extract_max(double *max_return, std::string *max_fund) {
+  // Takes pointers of max_return and max_fund (name) in order to manipulate
+  // two pieces of data. The extract_max function returns the root of the heap,
+  // i.e. the largest value and calls bubble down to reorganize the heap.
+  
   // if heap empty, return
   if (heap_struct.size == 0) return;
 
@@ -60,6 +71,9 @@ void Heap::extract_max(double *max_return, std::string *max_fund) {
 }
 
 void Heap::bubble_down(int index) {
+  // The opposite of bubble_up, except the elements that are swapped are the
+  // between the parent and the largest child (if there is a swap)
+   
   // set children
   int c = Heap::child_index(index);
   if (c == -1) return;
@@ -84,6 +98,9 @@ void Heap::bubble_down(int index) {
 
 void Heap::heap_sort(std::vector<double> &returns,
     std::vector<std::string> &names) {
+  // Sorts the heap by iteratively removing the largest element from the heap
+  // and putting the pair values into the return and names vector
+
   if (heap_struct.size == 0) return;
  
   // intiializing variables to pass into extract_max function 

@@ -4,13 +4,16 @@
 #include <vector>
 #include <string>
 
-// Class with all members needed to create and manipulate a heap
+// The heap structure is used to simulate a heap of financial data. Note how
+// the heap contains not only double types (for financial returns), but string
+// types to hold the accompanying company name
 struct heap {
   double returns[500];
   std::string names[500];
   int size;
 };
 
+// Class with all members needed to create and manipulate a heap
 class Heap {
  private:
   struct heap heap_struct;
@@ -28,11 +31,14 @@ class Heap {
   void display();
   void display(const std::vector<double> &returns, 
       const std::vector<std::string> &names);
-
+  
+  // If constructing a single heap object
   Heap(const std::vector<double> &values, const std::vector<std::string>
       &input_names) {
     make_heap(values, input_names);
   }
+
+  // Default heap constructor for array of Heaps
   Heap() {
 
   }
