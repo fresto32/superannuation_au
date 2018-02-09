@@ -1,6 +1,8 @@
 #include <iostream>
 #include "financial_data_reader.h"
 #include "data_to_heap.h"
+#include "data_to_tree.h"
+#include "quicksort_searcher.h"
 #include <vector>
 
 int main () {
@@ -30,6 +32,28 @@ int main () {
     heap_data[i].make_heap(fund_returns[i], fund_names[i]);
     heap_data[i].heap_sort(sorted_fund_returns[i], sorted_fund_names[i]);
     heap_data[i].display(sorted_fund_returns[i], sorted_fund_names[i]);
+  }
+
+  // Create vector to hold Tree objects
+  std::vector<Tree> tree_data;
+
+  for (int i = 0; i < fund_names_size; i++) {
+    tree_data.push_back(Tree());
+    tree_data[i].make_tree(fund_names[i], fund_returns[i]);
+  }
+
+  // User input: 
+  int c = 0;
+  int k;
+
+  while (c != -1) {
+    std::cout << "Enter an index or -1 to quit: ";
+    std::cin >> c;
+    
+    if (c != -1) {
+      k = fund_rank(c, fund_returns[2]);
+      std::cout << "That firm's rank is: " << k << std::endl;
+    }
   }
 
   return 0;

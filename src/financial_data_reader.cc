@@ -80,16 +80,19 @@ void display_vector_of_vectors() {
   std::cout << " ------------------DISPLAY------------------" << std::endl;
   for (int j = 0; j < fund_names.size(); j++)
   {
-    std::cout << std::endl << "\t------- YEAR = " << j + 2014 << " -------\n";
+    std::cout << std::endl << "\t------ YEAR = " << j + 2014 << " ------\n";
     for (int i = 0; i < fund_names[j].size(); i++) {
-      std::cout << fund_names[j][i] << " " << fund_returns[j][i] << std::endl;
+      std::cout << fund_names[j][i] << " " << fund_returns[j][i] 
+        << std::endl;
     }
-    std::cout << "\nSize of Fund Names: " << fund_names[j].size() << std::endl;
-    std::cout << "Size of Fund Returns: \n" << fund_returns[j].size();
-    std::cout << std::endl;
+    std::cout << "\nSize of Fund Names: " << fund_names[j].size() 
+      << std::endl;
+    std::cout << "Size of Fund Returns: " << fund_returns[j].size()
+      << std::endl << std::endl;
 
     if (fund_names[j].size() != fund_returns[j].size())
-      std::cout << "Error: Fund names and returns not same size!" << std::endl;
+      std::cout << "Error: Fund names and returns not same size!" 
+        << std::endl;
   }
 }
 
