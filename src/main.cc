@@ -46,16 +46,6 @@ int main () {
   int c = 0;
   int k;
 
-  while (c != -1) {
-    std::cout << "Enter an index or -1 to quit: ";
-    std::cin >> c;
-    
-    if (c != -1) {
-      k = fund_rank(c, fund_returns[2]);
-      std::cout << "That firm's rank is: " << k << std::endl;
-    }
-  }
-
   return 0;
 
  }

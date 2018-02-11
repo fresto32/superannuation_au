@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
+#include <locale>
 
 int Heap::child_index(int n) {
   // Returns index of child of index n
@@ -146,7 +148,10 @@ void Heap::display(const std::vector<double> &returns,
     const std::vector<std::string> &names) {
   std::cout << " ------------- Returns of Sorted Heap ------------- \n";
   for (int i = 0; i < returns.size(); i++) {
-    std::cout << names[i] << ": " << returns[i] << std::endl;
+    std::cout << "Index " << std::right << std::setfill(' ') <<  std::setw(3)
+      << i << ":";
+    std::cout << std::left << std::setfill('.') << std::setw(70) << names[i]
+      + ": " << " " <<  returns[i]*100 << "%" <<  std::endl;
   }
   std::cout << "\n\tSize: " << returns.size() << std::endl << std::endl;
 }
