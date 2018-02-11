@@ -7,7 +7,9 @@
 
 int main () {
   data_to_vector_of_vectors();
-  display_vector_of_vectors();
+
+  // Uncomment to see unsorted financial data
+  // display_vector_of_vectors();
 
   int fund_names_size = fund_names.size();
   std::cout << "Total years of data: " << fund_names_size;
@@ -41,10 +43,6 @@ int main () {
     tree_data.push_back(Tree());
     tree_data[i].make_tree(fund_names[i], fund_returns[i]);
   }
-
-  // User input: 
-  int c = 0;
-  int k;
 
   return 0;
 

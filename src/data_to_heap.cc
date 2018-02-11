@@ -136,7 +136,7 @@ void Heap::make_heap(const std::vector<double> &values,
 }
 
 void Heap::display() {
-  std::cout << " ------------- Returns of Heap ------------- " << std::endl;
+  std::cout << "\t\t   ------------- Returns of Heap ------------- \n";
   for (int i = 1; i < heap_struct.size; i++) {
     std::cout << heap_struct.names[i] << ": " <<
       heap_struct.returns[i] << std::endl;
@@ -146,7 +146,7 @@ void Heap::display() {
 
 void Heap::display(const std::vector<double> &returns,
     const std::vector<std::string> &names) {
-  std::cout << " ------------- Returns of Sorted Heap ------------- \n";
+  std::cout << "\t\t   ------------- Returns of Sorted Heap ------------- \n";
   for (int i = 0; i < returns.size(); i++) {
     std::cout << "Index " << std::right << std::setfill(' ') <<  std::setw(3)
       << i << ":";
